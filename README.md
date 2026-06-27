@@ -71,22 +71,6 @@ multimodal-rag/
 
 ---
 
-## Deploying to Streamlit Community Cloud
-
-1. Push the repo to GitHub (secrets.toml excluded via .gitignore)
-2. Go to [share.streamlit.io](https://share.streamlit.io) → New app
-3. Select your repo, branch `main`, file `app.py`
-4. Click **Advanced settings → Secrets** and paste:
-   ```toml
-   [groq]
-   api_key = "gsk_..."
-   ```
-5. Deploy
-
-Models download on first cold start (~60s). Subsequent loads are fast.
-
----
-
 ## Key design decisions
 
 **BGE for text, not CLIP** — CLIP has a 77-token hard limit on text inputs. A 300-word chunk is ~400 tokens — CLIP would silently truncate 80% of every chunk. BGE has a 512-token limit and is trained specifically for asymmetric retrieval (short query → long document), making it the right tool for text.
@@ -144,6 +128,21 @@ api_key = "gsk_..."
 ```bash
 streamlit run app.py
 ```
+---
+
+## Deploying to Streamlit Community Cloud
+
+1. Push the repo to GitHub (secrets.toml excluded via .gitignore)
+2. Go to [share.streamlit.io](https://share.streamlit.io) → New app
+3. Select your repo, branch `main`, file `app.py`
+4. Click **Advanced settings → Secrets** and paste:
+   ```toml
+   [groq]
+   api_key = "gsk_..."
+   ```
+5. Deploy
+
+Models download on first cold start (~60s). Subsequent loads are fast.
 
 ---
 
