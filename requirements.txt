@@ -1,0 +1,23 @@
+# Streamlit
+streamlit
+
+# LLM — Groq
+groq
+
+# Text embedding — BGE (purpose-built for retrieval)
+sentence-transformers
+
+# Image embedding — CLIP
+transformers
+torch
+Pillow
+torchvision
+
+# Vector store
+faiss-cpu
+
+# PDF parsing
+pymupdf
+
+# Utilities
+numpy
